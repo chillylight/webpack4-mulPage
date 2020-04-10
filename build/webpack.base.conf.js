@@ -2,13 +2,11 @@
 * @Author: chillylight
 * @Date:   2019-09-17 11:03:20
 * @Last Modified by:   chillylight
-* @Last Modified time: 2020-04-09 09:24:27
+* @Last Modified time: 2020-04-10 17:03:20
 */
 const path = require('path');
 const webpack = require("webpack");
 const glob = require("glob-all");
-//消除冗余的css
-const PurgecssPlugin = require('purgecss-webpack-plugin')
 // html模板
 const htmlWebpackPlugin = require("html-webpack-plugin");
 //静态资源输出
@@ -18,7 +16,7 @@ const rules = require("./webpack.rules.conf.js");
 let getHtmlConfig = function (name, chunks) {
 	return {
 		template: path.join(__dirname,`../src/pages/${name}/index.html`),
-		filename: `trans/${name}.html`,
+		filename: `project/${name}.html`,
 		// favicon: './favicon.ico',
 		// title: title,
 		inject: true,

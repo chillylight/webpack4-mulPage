@@ -2,7 +2,7 @@
 * @Author: chillylight
 * @Date:   2019-09-17 11:17:09
 * @Last Modified by:   chillylight
-* @Last Modified time: 2020-03-27 09:42:40
+* @Last Modified time: 2020-04-10 16:58:38
 */
 const path = require('path');
 
@@ -71,26 +71,6 @@ const rules = [{
 		// html中的img标签
 		use: ["html-withimg-loader"]
 	}, 
-	{
-		test: /\.less$/,
-		use: [
-			devMode ? 'style-loader' : {
-				loader: MiniCssExtractPlugin.loader,
-				options: {
-					// you can specify a publicPath here
-					// by default it use publicPath in webpackOptions.output
-					publicPath: '../'
-				}
-			},
-			'css-loader',
-			'postcss-loader',
-			'less-loader',
-		]
-	},
-	{ 
-	    test: /\.string$/, 
-	    use: 'html-loader'
-	},
 	// 使用expose处理JQuery（JQ使用npm安装）配置了这一条后就不要使用external（主要用于cdn引入）
 	{
 	    test: require.resolve('jquery'), // 此loader配置项的目标是NPM中的jquery

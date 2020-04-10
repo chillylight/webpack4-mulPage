@@ -2,7 +2,7 @@
 * @Author: chillylight
 * @Date:   2019-09-17 11:00:06
 * @Last Modified by:   chillylight
-* @Last Modified time: 2020-04-09 09:38:20
+* @Last Modified time: 2020-04-10 17:02:12
 */
 const path = require('path');
 const webpack = require("webpack");
@@ -21,7 +21,7 @@ const webpackConfigDev = {
 		publicPath:'/',
 		host: "localhost",
 		port: "8089",
-		openPage:'trans/',
+		openPage:'project/',
 		overlay: true, // 浏览器页面上显示错误 
 		open: true, // 开启浏览器
 		// stats: "errors-only", //stats: "errors-only"表示只打印错误：
@@ -29,7 +29,7 @@ const webpackConfigDev = {
 		// hotOnly:true,
 		proxy: {
 	        '/api': {
-	            target: 'http://develop.fanyigou.net',
+	            target: 'http://www.baidu.com',
 	            changeOrigin: true,
 	            pathRewrite: {
 	                '^/api': ''
@@ -38,7 +38,7 @@ const webpackConfigDev = {
 	            // 在代理收到请求之后将数据发给浏览器之前做一层拦截,修改set-cookie中domain为localhost
 	            onProxyRes: function(proxyRes, req, res) {
 	                var cookies = proxyRes.headers['set-cookie'];
-	                var cookieRegex = /Domain=fanyigou.net/i; // 返回的cookie中提取domain
+	                var cookieRegex = /Domain=baidu.com/i; // 返回的cookie中提取domain
 	                //修改cookie Path
 	                if (cookies) {
 	                    var newCookie = cookies.map(function(cookie) {
